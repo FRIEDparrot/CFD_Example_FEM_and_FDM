@@ -1,0 +1,78 @@
+﻿  CFD_Project1.cpp
+E:\Repository\CFD_Project1\packages\Eigen.3.3.3\build\native\include\Eigen\src\Core\arch\CUDA\Half.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(53,19): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(53,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(53,24): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(53,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(83,63): warning C4244: 'argument': conversion from 'double' to 'Real', possible loss of data
+          with
+          [
+              Real=float
+          ]
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(83,58): warning C4244: 'argument': conversion from 'double' to 'Real', possible loss of data
+          with
+          [
+              Real=float
+          ]
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(147,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(149,43): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(170,105): warning C4316: 'element': object allocated on the heap may not be aligned 16
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(46,29): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(145): message : see reference to function template instantiation 'float Phi<float,float,float>(W,X,Y)' being compiled
+          with
+          [
+              W=float,
+              X=float,
+              Y=float
+          ]
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(47,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+E:\Repository\CFD_Project1\packages\boost.1.82.0\lib\native\include\boost\math\differentiation\autodiff_cpp11.hpp(370,95): warning C4244: 'argument': conversion from 'const double' to 'const RealType', possible loss of data
+          with
+          [
+              RealType=float
+          ]
+E:\Repository\CFD_Project1\packages\boost.1.82.0\lib\native\include\boost\math\differentiation\autodiff_cpp11.hpp(378): message : see reference to function template instantiation 'std::tuple<boost::math::differentiation::autodiff_v1::detail::fvar<RealType,1>,boost::math::differentiation::autodiff_v1::detail::fvar<boost::math::differentiation::autodiff_v1::detail::fvar<RealType,0>,0>,boost::math::differentiation::autodiff_v1::detail::fvar<boost::math::differentiation::autodiff_v1::detail::fvar<boost::math::differentiation::autodiff_v1::detail::fvar<RealType,0>,0>,0>> boost::math::differentiation::autodiff_v1::detail::make_ftuple_impl<RealType,1,0,0,0,1,2,double,double,double>(std::integer_sequence<size_t,0,1,2>,const double &,const double &,const double &)' being compiled
+          with
+          [
+              RealType=float
+          ]
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(63): message : see reference to function template instantiation 'std::tuple<boost::math::differentiation::autodiff_v1::detail::fvar<RealType,1>,boost::math::differentiation::autodiff_v1::detail::fvar<boost::math::differentiation::autodiff_v1::detail::fvar<RealType,0>,0>,boost::math::differentiation::autodiff_v1::detail::fvar<boost::math::differentiation::autodiff_v1::detail::fvar<boost::math::differentiation::autodiff_v1::detail::fvar<RealType,0>,0>,0>> boost::math::differentiation::autodiff_v1::make_ftuple<float,1,0,0,double,double,double>(const double &,const double &,const double &)' being compiled
+          with
+          [
+              RealType=float
+          ]
+E:\Repository\CFD_Project1\packages\boost.1.82.0\lib\native\include\boost\math\quadrature\gauss.hpp(1194,15): warning C4244: 'initializing': conversion from 'double' to 'Real', possible loss of data
+          with
+          [
+              Real=float
+          ]
+E:\Repository\CFD_Project1\packages\boost.1.82.0\lib\native\include\boost\math\quadrature\gauss.hpp(1224): message : see reference to function template instantiation 'K boost::math::quadrature::gauss<float,10,boost::math::policies::policy<boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy>>::integrate<boost::math::quadrature::gauss<float,10,boost::math::policies::policy<boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy>>::integrate::<lambda_49ef55b0785c75a8433350934fd7b4af>>(F,Real *)' being compiled
+          with
+          [
+              F=boost::math::quadrature::gauss<float,10,boost::math::policies::policy<boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy>>::integrate::<lambda_49ef55b0785c75a8433350934fd7b4af>,
+              Real=float
+          ]
+E:\Repository\CFD_Project1\packages\boost.1.82.0\lib\native\include\boost\math\quadrature\gauss.hpp(1224): message : see reference to function template instantiation 'K boost::math::quadrature::gauss<float,10,boost::math::policies::policy<boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy>>::integrate<boost::math::quadrature::gauss<float,10,boost::math::policies::policy<boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy>>::integrate::<lambda_49ef55b0785c75a8433350934fd7b4af>>(F,Real *)' being compiled
+          with
+          [
+              F=boost::math::quadrature::gauss<float,10,boost::math::policies::policy<boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy>>::integrate::<lambda_49ef55b0785c75a8433350934fd7b4af>,
+              Real=float
+          ]
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(83): message : see reference to function template instantiation 'double boost::math::quadrature::gauss<float,10,boost::math::policies::policy<boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy>>::integrate<Elem_Stiffness::<lambda_2388888e45954b2159ac0b76c2869698>>(F,Real,Real,Real *)' being compiled
+          with
+          [
+              F=Elem_Stiffness::<lambda_2388888e45954b2159ac0b76c2869698>,
+              Real=float
+          ]
+E:\Repository\CFD_Project1\CFD_Project1\CFD_Project1.cpp(83): message : see reference to function template instantiation 'double boost::math::quadrature::gauss<float,10,boost::math::policies::policy<boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy,boost::math::policies::default_policy>>::integrate<Elem_Stiffness::<lambda_2388888e45954b2159ac0b76c2869698>>(F,Real,Real,Real *)' being compiled
+          with
+          [
+              F=Elem_Stiffness::<lambda_2388888e45954b2159ac0b76c2869698>,
+              Real=float
+          ]
+E:\Repository\CFD_Project1\packages\boost.1.82.0\lib\native\include\boost\math\quadrature\gauss.hpp(1200,1): warning C4244: '+=': conversion from 'double' to 'Real', possible loss of data
+          with
+          [
+              Real=float
+          ]
+  CFD_Project1.vcxproj -> E:\Repository\CFD_Project1\Debug\CFD_Project1.exe
