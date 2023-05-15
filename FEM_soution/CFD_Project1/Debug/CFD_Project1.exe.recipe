@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\Repository\CFD_Project1\Debug\CFD_Project1.exe</FullPath>
+      <FullPath>E:\Repository\CFD_Project1\CFD_Example_FEM_and_FDM\FEM_soution\Debug\CFD_Project1.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

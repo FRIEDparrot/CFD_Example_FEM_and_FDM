@@ -105,7 +105,7 @@ struct plain_array<T, Size, MatrixOrArrayOptions, 16>
 
   EIGEN_DEVICE_FUNC
   plain_array() 
-  { 
+  {
     EIGEN_MAKE_UNALIGNED_ARRAY_ASSERT(15);
     check_static_allocation_size<T,Size>();
   }

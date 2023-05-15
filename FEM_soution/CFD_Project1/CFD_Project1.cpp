@@ -7,6 +7,7 @@
 #include <Eigen/Dense>               // 使用Eigen库的稠密矩阵函数
 #include <Eigen/Sparse>              // 稀疏矩阵
 #include <unordered_map>             // 哈希表类型
+#include <fstream>
 
 using namespace boost::math::differentiation;
 using namespace boost::math::quadrature;
@@ -36,20 +37,38 @@ public:
     std::vector<int> nodeIndex; // 节点相对编号,长度2向量，分别存储下标1,2的节点全局下标
 };
 
+// Phi的全局函数，并使用类模板，定义成多类型变量求导函数 （这里好像(double) x_i就报错）
+template<typename W, typename X, typename Y>
+promote<W, X, Y> Phi(W x, X x_i, Y h) {
+    if (x <= x_i - h || x >= x_i + h) return 0;
+    if (x < x_i) return 1.0 - (x_i - x) / h;
+    return 1.0 - (x - x_i) / h;
+}
+
+// 将结果写入文件中
+void output_file(std::vector<float> location, std::vector<float> velocity) {
+    std::ofstream File("data_fem.csv");
+    if (!File) {
+        std::cout << "error when opening the file" << std::endl;
+        exit(0);
+    }
+    else {
+        File << "Location" << "," << "velocity" << std::endl;
+        for (int i = 0; i < location.size(); i++) 
+            File << location[i] << "," << velocity[i] << std::endl;
+        File.close();
+    }
+}
+
 #pragma endregion
 
 #pragma region Stiff_Derivation
-// Phi的全局函数，并使用类模板，定义成多类型变量求导函数
-template<typename W, typename X, typename Y>
-promote<W,X,Y> Phi(W x, X x_i, Y h) {
-    if (x <= x_i - h || x >= x_i + h) return 0;
-    if (x < x_i) return 1.0 - (x_i - x) / h;
-    return 1.0 - (x - x_i)/ h;
-}
 
-// 计算一个单元的刚度矩阵，返回一个2x2的矩阵
+
+// 计算一个单元的刚度矩阵，返回一个2x2的矩阵(附注: 如果连续运行程序，会导致报错，报错原因可能在这里)
 Matrix2f Elem_Stiffness(double x_i, double x_j, double h) {
     Matrix2f elem_mat;
+    elem_mat.setZero();
     float xVec[]{ x_i, x_j };
     float dPhi[2]; // 存储导数的值
     // 定义求导的自变量值
@@ -154,6 +173,7 @@ VectorXf fVecGenerate(int elem_num, int node_num,std::vector<element*> elems, st
 
 #pragma endregion
 
+#pragma region main_programs
 // 一维问题求解入口函数
 void Solution1d(float length,int elem_num) {
     int node_num = elem_num + 1;
@@ -164,11 +184,9 @@ void Solution1d(float length,int elem_num) {
     for (int i = 0; i < node_num; i++) {
         cord.push_back(i * h);
     }
-
     // 存储相对坐标,绝对坐标和每个单元的刚度矩阵
-    for (int i = 0; i < elem_num; i++) {
-        element* e = new element(std::vector<int> { i, i + 1 }, Elem_Stiffness(cord[i], cord[i + 1], h));
-        elems.push_back(e);
+    for (int i = 0; i < elem_num ; i++) {
+        elems.push_back(new element(std::vector<int> { i, i + 1 }, Elem_Stiffness(cord[i], cord[i + 1], h)));
     }
 
     // 组装整体刚度矩阵
@@ -179,9 +197,8 @@ void Solution1d(float length,int elem_num) {
 
     // 对于本质边界条件的部分，使用对角线元素扩大方法进行求解的修正
     for (SparseMatrix<float>::InnerIterator iter(tot_Stiff, 0); iter ; ++iter) {
-        std::cout << iter.row() << " " << iter.col() << " " << iter.value() << std::endl;
         if (iter.row() == 0 && iter.col() == 0) {
-            iter.valueRef() *= 1e10;        
+            iter.valueRef() *= 1e15;  
             FVec[0] = 5 * iter.value();     // 使用主对角线的元素扩大方法进行求解
             // 将右侧的数以 aK_{jj} \bar{a_j} 来代替，其中\bar{a_j}是给出的边界值
         }
@@ -196,10 +213,15 @@ void Solution1d(float length,int elem_num) {
     solver.factorize(tot_Stiff);       // 进行LU分解
 
     // 求解线性方程组
-    VectorXf x = solver.solve(FVec);
-    std::cout << std::endl << x << std::endl;
+    VectorXf u = solver.solve(FVec);
+
+    std::cout <<"---------- The Result ----------- " << std::endl << u << std::endl;
+    // 将对应的向量转换为std向量
+    std::vector<float> velocity_vec(u.data(), u.data() + u.size());
+    output_file(cord, velocity_vec);
 }
 
+// 主函数
 int main()
 {
     int elem_num = 10;
@@ -207,3 +229,4 @@ int main()
     Solution1d(length, elem_num);
     return 0;
 }
+#pragma endregion
